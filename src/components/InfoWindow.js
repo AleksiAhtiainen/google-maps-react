@@ -81,17 +81,20 @@ export class InfoWindow extends React.Component {
 
     const html = ReactDOMServer.renderToStaticMarkup(children);
 
-    // TODO: save html?
+    // Patch the HTML with an event handler
+    if (this.props.onButtonClicksRawJS)
+    {
+      return html.replace('<button', '<button onClick="'+onButtonClicksRawJS+'"');
+    }
 
-    // const html2 = '<button onClick="handleDetailsClicked(\''+this.props.userId+'\')" class="ui black icon button"><i aria-hidden="true" class="angle double right icon"></i> </button>'
+    return html;
 
-    // const finalHtml = '<div>'+html+html2+'</div>';
-    var finalHtml = html.replace('<button', '<button onClick="handleDetailsClicked(\''+this.props.userId+'\')"');
+    // var finalHtml = html.replace('<button', '<button onClick="handleDetailsClicked(\''+this.props.userId+'\')"');
 
-    console.log('iw renderChildren', this.props);
-    console.log('iw renderChildren', finalHtml);
+    // console.log('iw renderChildren', this.props);
+    // console.log('iw renderChildren', finalHtml);
 
-    return finalHtml;
+    // return finalHtml;
   }
 
   render() {
@@ -106,8 +109,8 @@ InfoWindow.propTypes = {
   marker: T.object,
   visible: T.bool,
 
-  // user id
-  userId: T.string,
+  // run this JS code on button clicks within the info window
+  onButtonClicksRawJS: T.string,
 
   // callbacks
   onClose: T.func,
