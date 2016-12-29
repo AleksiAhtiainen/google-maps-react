@@ -179,7 +179,7 @@
 
         // Patch the HTML with an event handler
         if (this.props.onButtonClicksRawJS) {
-          return html.replace('<button', '<button onClick="' + onButtonClicksRawJS + '"');
+          return html.replace('<button', '<button onClick="' + this.props.onButtonClicksRawJS + '"');
         }
 
         return html;
