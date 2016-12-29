@@ -177,12 +177,13 @@
 
         var html = _server2.default.renderToString(children);
 
-        var html2 = '<button onClick="globalClick()" class="ui black icon button"><i aria-hidden="true" class="angle double right icon"></i> </button>';
+        var html2 = '<button onClick="handleDetailsClicked(' + children.props.id + ')" class="ui black icon button"><i aria-hidden="true" class="angle double right icon"></i> </button>';
 
         // const html = ReactDOMServer.renderToStaticMarkup()(children);
 
         var finalHtml = '<div>' + html + html2 + '</div>';
 
+        console.log('iw renderChildren', this.props);
         console.log('iw renderChildren', finalHtml);
 
         return finalHtml;
