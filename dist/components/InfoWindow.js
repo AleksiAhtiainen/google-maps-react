@@ -153,29 +153,35 @@
     }, {
       key: 'openWindow',
       value: function openWindow() {
+        console.log('iw openWindow');
         this.infowindow.open(this.props.map, this.props.marker);
       }
     }, {
       key: 'updateContent',
       value: function updateContent() {
+        console.log('iw updateContent');
         var content = this.renderChildren();
         this.infowindow.setContent(content);
       }
     }, {
       key: 'closeWindow',
       value: function closeWindow() {
+        console.log('iw closeWindow');
         this.infowindow.close();
       }
     }, {
       key: 'renderChildren',
       value: function renderChildren() {
+        console.log('iw renderChildren');
         var children = this.props.children;
 
-        return _server2.default.renderToString(children);
+        var html = _server2.default.renderToString(children);
+        return html;
       }
     }, {
       key: 'render',
       value: function render() {
+        console.log('iw render');
         return null;
       }
     }]);

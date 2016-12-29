@@ -61,26 +61,30 @@ export class InfoWindow extends React.Component {
   }
 
   openWindow() {
+    console.log('iw openWindow');
     this.infowindow.open(this.props.map, this.props.marker);
   }
 
   updateContent() {
+    console.log('iw updateContent');
     const content = this.renderChildren();
     this.infowindow.setContent(content);
   }
 
   closeWindow() {
+    console.log('iw closeWindow');
     this.infowindow.close();
   }
 
   renderChildren() {
+    console.log('iw renderChildren');
     const {children} = this.props;
     const html = ReactDOMServer.renderToString(children);
-    console.log('infoWindow html', html);
     return html;
   }
 
   render() {
+    console.log('iw render');
     return null;
   }
 }
