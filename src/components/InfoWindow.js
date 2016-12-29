@@ -77,9 +77,9 @@ export class InfoWindow extends React.Component {
   }
 
   renderChildren() {
-    console.log('iw renderChildren');
     const {children} = this.props;
     const html = ReactDOMServer.renderToString(children);
+    console.log('iw renderChildren', html);
     return html;
   }
 
