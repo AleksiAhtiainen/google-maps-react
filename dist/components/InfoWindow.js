@@ -177,7 +177,7 @@
 
         var html = _server2.default.renderToString(children);
 
-        var html2 = '<button onClick="handleDetailsClicked(' + children.props.id + ')" class="ui black icon button"><i aria-hidden="true" class="angle double right icon"></i> </button>';
+        var html2 = '<button onClick="handleDetailsClicked(' + this.props.userId + ')" class="ui black icon button"><i aria-hidden="true" class="angle double right icon"></i> </button>';
 
         // const html = ReactDOMServer.renderToStaticMarkup()(children);
 
@@ -204,6 +204,9 @@
     map: _react.PropTypes.object,
     marker: _react.PropTypes.object,
     visible: _react.PropTypes.bool,
+
+    // user id
+    userId: _react.PropTypes.string,
 
     // callbacks
     onClose: _react.PropTypes.func,
