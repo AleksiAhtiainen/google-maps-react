@@ -75,7 +75,16 @@ export class InfoWindow extends React.Component {
 
   renderChildren() {
     const {children} = this.props;
-    return ReactDOMServer.renderToString(children);
+
+    const html = ReactDOMServer.renderToStaticMarkup(children);
+
+    // Patch the HTML with an event handler
+    if (this.props.onButtonClicksRawJS)
+    {
+      return html.replace('<button', '<button onClick="'+this.props.onButtonClicksRawJS+'"');
+    }
+
+    return html;
   }
 
   render() {
@@ -88,6 +97,9 @@ InfoWindow.propTypes = {
   map: T.object,
   marker: T.object,
   visible: T.bool,
+
+  // Raw JS code to call on the button clicks
+  onButtonClicksRawJS: T.string,
 
   // callbacks
   onClose: T.func,

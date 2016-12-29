@@ -171,7 +171,15 @@
       value: function renderChildren() {
         var children = this.props.children;
 
-        return _server2.default.renderToString(children);
+
+        var html = _server2.default.renderToStaticMarkup(children);
+
+        // Patch the HTML with an event handler
+        if (this.props.onButtonClicksRawJS) {
+          return html.replace('<button', '<button onClick="' + this.props.onButtonClicksRawJS + '"');
+        }
+
+        return html;
       }
     }, {
       key: 'render',
@@ -188,6 +196,9 @@
     map: _react.PropTypes.object,
     marker: _react.PropTypes.object,
     visible: _react.PropTypes.bool,
+
+    // Raw JS code to call on the button clicks
+    onButtonClicksRawJS: _react.PropTypes.string,
 
     // callbacks
     onClose: _react.PropTypes.func,
