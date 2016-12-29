@@ -174,7 +174,7 @@
       value: function renderChildren() {
         var children = this.props.children;
 
-        var html = _server2.default.renderToString(children);
+        var html = _server2.default.renderToStaticMarkup(children);
         console.log('iw renderChildren', html);
         return html;
       }
