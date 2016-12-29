@@ -175,14 +175,14 @@
         var children = this.props.children;
 
 
-        var html = _server2.default.renderToString(children);
+        var html = _server2.default.renderToStaticMarkup(children);
 
         // TODO: save html?
-        var html2 = '<button onClick="handleDetailsClicked(\'' + this.props.userId + '\')" class="ui black icon button"><i aria-hidden="true" class="angle double right icon"></i> </button>';
 
-        // const html = ReactDOMServer.renderToStaticMarkup()(children);
+        // const html2 = '<button onClick="handleDetailsClicked(\''+this.props.userId+'\')" class="ui black icon button"><i aria-hidden="true" class="angle double right icon"></i> </button>'
 
-        var finalHtml = '<div>' + html + html2 + '</div>';
+        // const finalHtml = '<div>'+html+html2+'</div>';
+        var finalHtml = html.replace('<button', '<button onClick="handleDetailsClicked(\'' + this.props.userId + '\')"');
 
         console.log('iw renderChildren', this.props);
         console.log('iw renderChildren', finalHtml);
