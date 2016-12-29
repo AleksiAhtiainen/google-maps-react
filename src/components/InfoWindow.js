@@ -82,7 +82,7 @@ export class InfoWindow extends React.Component {
     const html = ReactDOMServer.renderToString(children);
 
     // TODO: save html?
-    const html2 = '<button onClick="handleDetailsClicked("'+this.props.userId+'")" class="ui black icon button"><i aria-hidden="true" class="angle double right icon"></i> </button>'
+    const html2 = '<button onClick="handleDetailsClicked(\''+this.props.userId+'\')" class="ui black icon button"><i aria-hidden="true" class="angle double right icon"></i> </button>'
 
     // const html = ReactDOMServer.renderToStaticMarkup()(children);
 

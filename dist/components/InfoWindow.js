@@ -178,7 +178,7 @@
         var html = _server2.default.renderToString(children);
 
         // TODO: save html?
-        var html2 = '<button onClick="handleDetailsClicked("' + this.props.userId + '")" class="ui black icon button"><i aria-hidden="true" class="angle double right icon"></i> </button>';
+        var html2 = '<button onClick="handleDetailsClicked(\'' + this.props.userId + '\')" class="ui black icon button"><i aria-hidden="true" class="angle double right icon"></i> </button>';
 
         // const html = ReactDOMServer.renderToStaticMarkup()(children);
 
