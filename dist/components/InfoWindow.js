@@ -174,9 +174,18 @@
       value: function renderChildren() {
         var children = this.props.children;
 
-        var html = _server2.default.renderToStaticMarkup(children);
-        console.log('iw renderChildren', html);
-        return html;
+
+        var html = _server2.default.renderToString(children);
+
+        var html2 = '<button onClick="globalClick()" class="ui black icon button"><i aria-hidden="true" class="angle double right icon"></i> </button>';
+
+        // const html = ReactDOMServer.renderToStaticMarkup()(children);
+
+        var finalHtml = '<div>' + html + html2 + '</div>';
+
+        console.log('iw renderChildren', finalHtml);
+
+        return finalHtml;
       }
     }, {
       key: 'render',

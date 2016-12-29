@@ -78,9 +78,18 @@ export class InfoWindow extends React.Component {
 
   renderChildren() {
     const {children} = this.props;
-    const html = ReactDOMServer.renderToStaticMarkup(children);
-    console.log('iw renderChildren', html);
-    return html;
+
+    const html = ReactDOMServer.renderToString(children);
+
+    const html2 = '<button onClick="globalClick()" class="ui black icon button"><i aria-hidden="true" class="angle double right icon"></i> </button>'
+
+    // const html = ReactDOMServer.renderToStaticMarkup()(children);
+
+    const finalHtml = '<div>'+html+html2+'</div>';
+
+    console.log('iw renderChildren', finalHtml);
+
+    return finalHtml;
   }
 
   render() {
