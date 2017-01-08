@@ -133,7 +133,9 @@
             mapCenter = _props.mapCenter,
             icon = _props.icon,
             label = _props.label,
-            draggable = _props.draggable;
+            draggable = _props.draggable,
+            zIndex = _props.zIndex,
+            optimized = _props.optimized;
 
         if (!google) {
           return null;
@@ -149,7 +151,9 @@
           position: position,
           icon: icon,
           label: label,
-          draggable: draggable
+          draggable: draggable,
+          zIndex: zIndex,
+          optimized: optimized
         };
         this.marker = new google.maps.Marker(pref);
 
